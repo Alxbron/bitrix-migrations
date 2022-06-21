@@ -19,7 +19,7 @@ class __className__ extends BitrixMigration
             'NAME' => '__',
             'CODE' => '__',
             'SITE_ID' => 's1',
-            'IBLOCK_TYPE_ID' => '__', //символьный код группы инфоблока,
+            'IBLOCK_TYPE_ID' => '__', //the symbolic code of the iblock group,
             'VERSION' => 2,
             'GROUP_ID' => ['2' =>'R'],
             'LIST_PAGE_URL' => '__',
@@ -27,18 +27,18 @@ class __className__ extends BitrixMigration
         ]);
 
         if (!$iblockId) {
-            throw new MigrationException('Ошибка при добавлении инфоблока '.$ib->LAST_ERROR);
+            throw new MigrationException('Error when adding iblock '.$ib->LAST_ERROR);
         }
 
-        // свойства
+        // Property
         $propId = $this->addIblockElementProperty([
             'NAME' => '__',
             'SORT' => 500,
             'CODE' => '',
-            'PROPERTY_TYPE' => 'L', // Список
-            'LIST_TYPE' => 'C', // Тип списка - 'флажки'
+            'PROPERTY_TYPE' => 'L', // List
+            'LIST_TYPE' => 'C', // List type - 'checkboxes'
             'VALUES' => [
-                'VALUE' => 'да',
+                'VALUE' => 'yes',
             ],
             'MULTIPLE'  => 'N',
             'IS_REQUIRED' => 'N',

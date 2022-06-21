@@ -11,89 +11,83 @@ class __className__ extends BitrixMigration
      * @return mixed
      * @throws MigrationException
      */
-    public function up()
+    public function up()XML_ID of the user field
     {
         $propId = $this->addUF([
             /*
-            * Идентификатор сущности, к которой будет привязано свойство.
-            * Для секция формат следующий - IBLOCK_{IBLOCK_ID}_SECTION
+            * ID of the entity to which the property will be bound.
+            * the format for the section is  - IBLOCK_{IBLOCK_ID}_SECTION
             */
             'ENTITY_ID' => 'USER',
-            /* Код поля. Всегда должно начинаться с UF_ */
+            /* Field code. It should always start with UF_ */
             'FIELD_NAME' => '__',
-            /* Указываем, что тип нового пользовательского свойства строка */
+            /* We specify that the type of the new user field is a string */
             'USER_TYPE_ID' => 'string',
             /*
-            * XML_ID пользовательского свойства.
-            * Используется при выгрузке в качестве названия поля
+            * XML_ID of the user field.
+            * Used when uploading as a field name
             */
             'XML_ID' => '',
-            /* Сортировка */
+            /* Sorting */
             'SORT' => 500,
-            /* Является поле множественным или нет */
+            /* Is the field multiple or not */
             'MULTIPLE' => 'N',
-            /* Обязательное или нет свойство */
+            /* Required or not property */
             'MANDATORY' => 'N',
             /*
-            * Показывать в фильтре списка. Возможные значения:
-            * не показывать = N, точное совпадение = I,
-            * поиск по маске = E, поиск по подстроке = S
+            * Show in the list filter. Possible values:
+            * don't show = N, exact match = I,
+            * search by mask = E, search by substring = S
             */
             'SHOW_FILTER' => 'N',
             /*
-            * Не показывать в списке. Если передать какое-либо значение,
-            * то будет считаться, что флаг выставлен (недоработка разработчиков битрикс).
+            * Do not show in the list.
+            * If you pass any value, it will be considered that the flag is set (a flaw of the bitrix developers).
             */
             'SHOW_IN_LIST' => '',
             /*
-            * Не разрешать редактирование пользователем.
-            * Если передать какое-либо значение, то будет считаться,
-            * что флаг выставлен (недоработка разработчиков битрикс).
+            * Do not allow user editing.
+            * If you pass any value, it will be considered that the flag is set (a flaw of the bitrix developers).
             */
             'EDIT_IN_LIST' => '',
-            /* Значения поля участвуют в поиске */
+            /* Field values are included in the search */
             'IS_SEARCHABLE' => 'N',
             /*
-            * Дополнительные настройки поля (зависят от типа).
-            * В нашем случае для типа string
+            * Additional field settings (depending on the type).
+            * In our case, for the string type
             */
             'SETTINGS' => array(
-                /* Значение по умолчанию */
+                /* Default value */
                 'DEFAULT_VALUE' => '',
-                /* Размер поля ввода для отображения */
+                /* The size of the input field to display */
                 'SIZE' => '20',
-                /* Количество строчек поля ввода */
+                /* Number of input field lines */
                 'ROWS' => '1',
-                /* Минимальная длина строки (0 - не проверять) */
+                /* Minimum string length (0 - do not check) */
                 'MIN_LENGTH' => '0',
-                /* Максимальная длина строки (0 - не проверять) */
+                /* Maximum string length (0 - do not check) */
                 'MAX_LENGTH' => '0',
-                /* Регулярное выражение для проверки */
+                /* Regular expression to check */
                 'REGEXP' => '',
             ),
-            /* Подпись в форме редактирования */
+            /* Signature in edit form */
             'EDIT_FORM_LABEL' => array(
-                'ru' => 'Пользовательское свойство',
                 'en' => 'User field',
             ),
-            /* Заголовок в списке */
+            /* Title in the list */
             'LIST_COLUMN_LABEL' => array(
-                'ru' => 'Пользовательское свойство',
                 'en' => 'User field',
             ),
-            /* Подпись фильтра в списке */
+            /* Filter label in the list */
             'LIST_FILTER_LABEL' => array(
-                'ru' => 'Пользовательское свойство',
                 'en' => 'User field',
             ),
-            /* Сообщение об ошибке (не обязательное) */
+            /* Error message (optional) */
             'ERROR_MESSAGE' => array(
-                'ru' => 'Ошибка при заполнении пользовательского свойства',
                 'en' => 'An error in completing the user field',
             ),
-            /* Помощь */
+            /* Help */
             'HELP_MESSAGE' => [
-                'ru' => '',
                 'en' => '',
             ],
         ]);
@@ -111,7 +105,7 @@ class __className__ extends BitrixMigration
 
         $id = $this->getUFIdByCode('USER', $code);
         if (!$id) {
-            throw new MigrationException('Не найдено пользовательское свойство для удаления');
+            throw new MigrationException('No found user field to delete');
         }
 
         (new CUserTypeEntity())->delete($id);

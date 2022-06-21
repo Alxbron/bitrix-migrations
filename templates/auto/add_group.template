@@ -20,7 +20,7 @@ class __className__ extends BitrixMigration
         $id = $group->add($fields);
 
         if ($group->LAST_ERROR) {
-            throw new MigrationException('Ошибка при добавлении группы '.$group->LAST_ERROR);
+            throw new MigrationException('Error when adding a group '.$group->LAST_ERROR);
         }
     }
 

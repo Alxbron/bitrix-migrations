@@ -16,7 +16,7 @@ class HighloadBlock
     public $lang;
 
     /**
-     * Добавить HL
+     * Add HL
      * @throws \Exception
      */
     public function add()
@@ -35,13 +35,13 @@ class HighloadBlock
             ]);
         }
 
-        Logger::log("Добавлен HL {$this->fields['NAME']}", Logger::COLOR_GREEN);
+        Logger::log("Added HL {$this->fields['NAME']}", Logger::COLOR_GREEN);
 
         return $result->getId();
     }
 
     /**
-     * Обновить HL
+     * Update HL
      * @param $table_name
      * @throws \Exception
      */
@@ -54,11 +54,11 @@ class HighloadBlock
             throw new \Exception(join(', ', $result->getErrorMessages()));
         }
 
-        Logger::log("Обновлен HL {$table_name}", Logger::COLOR_GREEN);
+        Logger::log("Updated HL {$table_name}", Logger::COLOR_GREEN);
     }
 
     /**
-     * Удалить HL
+     * Delete HL
      * @param $table_name
      * @throws \Exception
      */
@@ -71,13 +71,13 @@ class HighloadBlock
             throw new \Exception(join(', ', $result->getErrorMessages()));
         }
 
-        Logger::log("Удален HL {$table_name}", Logger::COLOR_GREEN);
+        Logger::log("Deleted HL {$table_name}", Logger::COLOR_GREEN);
     }
 
     /**
-     * Установить настройки для добавления HL по умолчанию
-     * @param string $name Название highload-блока
-     * @param string $table_name Название таблицы с элементами highload-блока.
+     * set default settings for adding hl
+     * @param string $name The name of the highload block
+     * @param string $table_name Table name with highload block elements.
      * @return $this
      */
     public function constructDefault($name, $table_name)
@@ -86,7 +86,7 @@ class HighloadBlock
     }
 
     /**
-     * Название highload-блока.
+     * The name of the highload block.
      * @param string $name
      * @return $this
      */
@@ -98,7 +98,7 @@ class HighloadBlock
     }
 
     /**
-     * Название таблицы с элементами highload-блока.
+     * Table name with highload block elements.
      * @param string $table_name
      * @return $this
      */
@@ -110,7 +110,7 @@ class HighloadBlock
     }
 
     /**
-     * Установить локализацию
+     * Set localization
      * @param $lang
      * @param $text
      * @return HighloadBlock

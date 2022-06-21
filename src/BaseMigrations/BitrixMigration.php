@@ -79,7 +79,7 @@ class BitrixMigration implements MigrationInterface
     protected function getIblockIdByCode($code, $iBlockType = null)
     {
         if (!$code) {
-            throw new MigrationException('Не задан код инфоблока');
+            throw new MigrationException('Iblock code not set');
         }
 
         $filter = [
@@ -94,7 +94,7 @@ class BitrixMigration implements MigrationInterface
         $iblock = (new CIBlock())->GetList([], $filter)->fetch();
 
         if (!$iblock['ID']) {
-            throw new MigrationException("Не удалось найти инфоблок с кодом '{$code}'");
+            throw new MigrationException("Failed to find iblock with code '{$code}'");
         }
 
         return $iblock['ID'];
@@ -116,7 +116,7 @@ class BitrixMigration implements MigrationInterface
         $this->db->startTransaction();
         if (!CIBlock::Delete($id)) {
             $this->db->rollbackTransaction();
-            throw new MigrationException('Ошибка при удалении инфоблока');
+            throw new MigrationException('Error while deleting iblock');
         }
 
         $this->db->commitTransaction();
@@ -137,7 +137,7 @@ class BitrixMigration implements MigrationInterface
         $propId = $ibp->add($fields);
 
         if (!$propId) {
-            throw new MigrationException('Ошибка при добавлении свойства инфоблока '.$ibp->LAST_ERROR);
+            throw new MigrationException('Error when adding iblock property '.$ibp->LAST_ERROR);
         }
 
         return $propId;
@@ -154,11 +154,11 @@ class BitrixMigration implements MigrationInterface
     public function deleteIblockElementPropertyByCode($iblockId, $code)
     {
         if (!$iblockId) {
-            throw new MigrationException('Не задан ID инфоблока');
+            throw new MigrationException('Iblock ID not set');
         }
 
         if (!$code) {
-            throw new MigrationException('Не задан код свойства');
+            throw new MigrationException('Property code not set');
         }
 
         $id = $this->getIblockPropIdByCode($code, $iblockId);
@@ -178,11 +178,11 @@ class BitrixMigration implements MigrationInterface
     public function addUF($fields)
     {
         if (!$fields['FIELD_NAME']) {
-            throw new MigrationException('Не заполнен FIELD_NAME');
+            throw new MigrationException('FIELD_NAME not filled');
         }
 
         if (!$fields['ENTITY_ID']) {
-            throw new MigrationException('Не заполнен код ENTITY_ID');
+            throw new MigrationException('ENTITY_ID code not filled');
         }
 
         $oUserTypeEntity = new CUserTypeEntity();
@@ -190,7 +190,7 @@ class BitrixMigration implements MigrationInterface
         $fieldId = $oUserTypeEntity->Add($fields);
 
         if (!$fieldId) {
-            throw new MigrationException("Не удалось создать пользовательское свойство с FIELD_NAME = {$fields['FIELD_NAME']} и ENTITY_ID = {$fields['ENTITY_ID']}");
+            throw new MigrationException("Failed to create user field with FIELD_NAME = {$fields['FIELD_NAME']} and ENTITY_ID = {$fields['ENTITY_ID']}");
         }
 
         return $fieldId;
@@ -207,11 +207,11 @@ class BitrixMigration implements MigrationInterface
     public function getUFIdByCode($entity, $code)
     {
         if (!$entity) {
-            throw new MigrationException('Не задана сущность свойства');
+            throw new MigrationException('Property entity not set');
         }
 
         if (!$code) {
-            throw new MigrationException('Не задан код свойства');
+            throw new MigrationException('Property code not set');
         }
 
         $filter = [
@@ -221,7 +221,7 @@ class BitrixMigration implements MigrationInterface
 
         $arField = CUserTypeEntity::GetList(['ID' => 'ASC'], $filter)->fetch();
         if (!$arField || !$arField['ID']) {
-            throw new MigrationException("Не найдено свойство с FIELD_NAME = {$filter['FIELD_NAME']} и ENTITY_ID = {$filter['ENTITY_ID']}");
+            throw new MigrationException("Property not found with FIELD_NAME = {$filter['FIELD_NAME']} and ENTITY_ID = {$filter['ENTITY_ID']}");
         }
 
         return $arField['ID'];
@@ -244,7 +244,7 @@ class BitrixMigration implements MigrationInterface
 
         $prop = CIBlockProperty::getList(['sort' => 'asc', 'name' => 'asc'], $filter)->getNext();
         if (!$prop || !$prop['ID']) {
-            throw new MigrationException("Не удалось найти свойство с кодом '{$code}'");
+            throw new MigrationException("Could not find property with code '{$code}'");
         }
 
         return $prop['ID'];

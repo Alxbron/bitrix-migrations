@@ -435,16 +435,16 @@ class Migrator
     {
         if ($migration->useTransaction($this->use_transaction)) {
             $this->database->startTransaction();
-            Logger::log("Начало транзакции", Logger::COLOR_LIGHT_BLUE);
+            Logger::log("Start of the transaction", Logger::COLOR_LIGHT_BLUE);
             try {
                 $callback();
             } catch (\Exception $e) {
                 $this->database->rollbackTransaction();
-                Logger::log("Откат транзакции из-за ошибки '{$e->getMessage()}'", Logger::COLOR_LIGHT_RED);
+                Logger::log("Rollback of a transaction due to an error '{$e->getMessage()}'", Logger::COLOR_LIGHT_RED);
                 throw $e;
             }
             $this->database->commitTransaction();
-            Logger::log("Конец транзакции", Logger::COLOR_LIGHT_BLUE);
+            Logger::log("End of transaction", Logger::COLOR_LIGHT_BLUE);
         } else {
             $callback();
         }

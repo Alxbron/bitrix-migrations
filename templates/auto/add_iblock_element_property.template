@@ -19,7 +19,7 @@ class __className__ extends BitrixMigration
         $propId = $ibp->add($fields);
 
         if (!$propId) {
-            throw new MigrationException('Ошибка при добавлении свойства инфоблока '.$ibp->LAST_ERROR);
+            throw new MigrationException('Error when adding iblock property '.$ibp->LAST_ERROR);
         }
     }
 
@@ -37,7 +37,7 @@ class __className__ extends BitrixMigration
         $deleted = $ibp->delete($id);
 
         if (!$deleted) {
-            throw new MigrationException('Ошибка при удалении свойства инфоблока '.$ibp->LAST_ERROR);
+            throw new MigrationException('Error when deleting iblock property '.$ibp->LAST_ERROR);
         }
     }
 }

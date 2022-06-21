@@ -12,7 +12,7 @@ trait FieldConstructor
     public static $defaultFields = [];
 
     /**
-     * Получить итоговые настройки полей
+     * Get the final field settings
      */
     public function getFieldsWithDefault()
     {

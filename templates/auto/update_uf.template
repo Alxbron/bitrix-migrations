@@ -20,7 +20,7 @@ class __className__ extends BitrixMigration
 
         $result = $oUserTypeEntity->update($id, $fields);
         if (!$result) {
-            throw new MigrationException("Не удалось обновить пользовательское свойство с FIELD_NAME = {$fields['FIELD_NAME']} и ENTITY_ID = {$fields['ENTITY_ID']}");
+            throw new MigrationException("Failed to update a user field with FIELD_NAME = {$fields['FIELD_NAME']} and ENTITY_ID = {$fields['ENTITY_ID']}");
         }
     }
 

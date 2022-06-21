@@ -20,7 +20,7 @@ class __className__ extends BitrixMigration
 
         if (!$result->isSuccess()) {
             $errors = $result->getErrorMessages();
-            throw new MigrationException('Ошибка при обновлении hl-блока '.implode(', ', $errors));
+            throw new MigrationException('Error when updating the hl block '.implode(', ', $errors));
         }
     }
 
