@@ -28,7 +28,7 @@ class __className__ extends BitrixMigration
     {
         $id = $this->getUFIdByCode(__entity__, __code__);
         if (!$id) {
-            throw new MigrationException('Не найдено пользовательское свойство для удаления');
+            throw new MigrationException('No found user field to delete');
         }
 
         (new CUserTypeEntity())->delete($id);

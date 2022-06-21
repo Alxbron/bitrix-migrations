@@ -12,7 +12,7 @@ class IBlockPropertyEnum
     use FieldConstructor;
 
     /**
-     * Добавить значение списка
+     * Add a list value
      * @throws \Exception
      */
     public function add()
@@ -22,16 +22,16 @@ class IBlockPropertyEnum
         $property_enum_id = $obj->Add($this->getFieldsWithDefault());
 
         if (!$property_enum_id) {
-            throw new \Exception("Ошибка добавления значения enum");
+            throw new \Exception("Error adding enum value");
         }
 
-        Logger::log("Добавлено значение списка enum {$this->fields['VALUE']}", Logger::COLOR_GREEN);
+        Logger::log("Added enum list value {$this->fields['VALUE']}", Logger::COLOR_GREEN);
 
         return $property_enum_id;
     }
 
     /**
-     * Обновить свойство инфоблока
+     * Update iblock property
      * @param $id
      * @throws \Exception
      */
@@ -39,28 +39,28 @@ class IBlockPropertyEnum
     {
         $obj = new \CIBlockPropertyEnum();
         if (!$obj->Update($id, $this->fields)) {
-            throw new \Exception("Ошибка обновления значения enum");
+            throw new \Exception("Error updating the enum value");
         }
 
-        Logger::log("Обновлено значение списка enum {$id}", Logger::COLOR_GREEN);
+        Logger::log("Updated the value of the enum list {$id}", Logger::COLOR_GREEN);
     }
 
     /**
-     * Удалить свойство инфоблока
+     * Delete iblock property
      * @param $id
      * @throws \Exception
      */
     public static function delete($id)
     {
         if (!\CIBlockPropertyEnum::Delete($id)) {
-            throw new \Exception('Ошибка при удалении значения enum');
+            throw new \Exception('Error deleting enum value');
         }
 
-        Logger::log("Удалено значение списка enum {$id}", Logger::COLOR_GREEN);
+        Logger::log("Removed enum list value {$id}", Logger::COLOR_GREEN);
     }
 
     /**
-     * Установить настройки для добавления значения enum инфоблока по умолчанию
+     * Set the settings for adding the default enum value of iblock
      * @param string $xml_id
      * @param string $value
      * @param int $propertyId
@@ -78,7 +78,7 @@ class IBlockPropertyEnum
     }
 
     /**
-     * Код свойства.
+     * The property code.
      * @param string $propertyId
      * @return $this
      */
@@ -90,7 +90,7 @@ class IBlockPropertyEnum
     }
 
     /**
-     * Внешний код.
+     * Outer code.
      * @param string $xml_id
      * @return $this
      */
@@ -102,7 +102,7 @@ class IBlockPropertyEnum
     }
 
     /**
-     * Индекс сортировки.
+     * Sorting index.
      * @param int $sort
      * @return $this
      */
@@ -114,7 +114,7 @@ class IBlockPropertyEnum
     }
 
     /**
-     * Значение варианта свойства.
+     * Value of the property variant.
      * @param string $value
      * @return $this
      */
@@ -126,7 +126,7 @@ class IBlockPropertyEnum
     }
 
     /**
-     * Значение варианта свойства.
+     * Value of the property variant.
      * @param bool $def
      * @return $this
      */

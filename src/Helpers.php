@@ -23,7 +23,7 @@ class Helpers
     }
 
     /**
-     * Рекурсивный поиск миграций с поддирректориях
+     * Recursive search for migrations from subdirectories
      * @param $pattern
      * @param int $flags Does not support flag GLOB_BRACE
      * @return array
@@ -37,7 +37,7 @@ class Helpers
     }
 
     /**
-     * Получить ID HL по названию таблицы
+     * Get HL ID by table name
      * @param $table_name
      * @return mixed
      */
@@ -54,7 +54,7 @@ class Helpers
     }
 
     /**
-     * Получить ID UF
+     * Get ID UF
      * @param $obj
      * @param $field_name
      * @return mixed

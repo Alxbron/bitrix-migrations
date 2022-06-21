@@ -16,9 +16,9 @@ class OnBeforeIBlockUpdate extends BaseHandler implements HandlerInterface
     {
         $this->fields = $params[0];
 
-        // Если кода нет то миграция создастся битая.
-        // Еще это позволяет решить проблему с тем что создается лишняя миграция для торгового каталога
-        // когда обновляют связанный с ним инфоблок.
+        // If there is no code, then the migration will be created broken.
+        // It also allows you to solve the problem that an extra migration is created for the trade catalog
+        // when iblock associated with it is updated.
         if (!$this->fields['CODE']) {
             throw new SkipHandlerException();
         }

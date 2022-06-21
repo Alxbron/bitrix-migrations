@@ -12,7 +12,7 @@ class IBlockType
     use FieldConstructor;
 
     /**
-     * Добавить тип инфоблока
+     * Add iblock type
      * @throws \Exception
      */
     public function add()
@@ -22,11 +22,11 @@ class IBlockType
             throw new \Exception($obj->LAST_ERROR);
         }
 
-        Logger::log("Добавлен тип инфоблока {$this->fields['ID']}", Logger::COLOR_GREEN);
+        Logger::log("Added iblock type {$this->fields['ID']}", Logger::COLOR_GREEN);
     }
 
     /**
-     * Обновить тип инфоблока
+     * Update iblock type
      * @param $id
      * @throws \Exception
      */
@@ -37,25 +37,25 @@ class IBlockType
             throw new \Exception($obj->LAST_ERROR);
         }
 
-        Logger::log("Обновлен тип инфоблока {$id}", Logger::COLOR_GREEN);
+        Logger::log("Updated iblock type {$id}", Logger::COLOR_GREEN);
     }
 
     /**
-     * Удалить тип инфоблока
+     * Delete iblock type
      * @param $id
      * @throws \Exception
      */
     public static function delete($id)
     {
         if (!\CIBlockType::Delete($id)) {
-            throw new \Exception('Ошибка при удалении типа инфоблока');
+            throw new \Exception('Error when deleting iblock type');
         }
 
-        Logger::log("Удален тип инфоблока {$id}", Logger::COLOR_GREEN);
+        Logger::log("Iblock type has been removed {$id}", Logger::COLOR_GREEN);
     }
 
     /**
-     * ID типа информационных блоков. Уникален.
+     * ID of the type of iblocks. Unique.
      * @param string $id
      * @return $this
      */
@@ -67,7 +67,7 @@ class IBlockType
     }
 
     /**
-     * Разделяются ли элементы блока этого типа по разделам.
+     * Are the elements of this type of block divided into sections.
      * @param bool $has
      * @return $this
      */
@@ -79,7 +79,7 @@ class IBlockType
     }
 
     /**
-     * Полный путь к файлу-обработчику массива полей элемента перед сохранением на странице редактирования элемента.
+     * The full path to the handler file of the array of element fields before saving on the element editing page.
      * @param string $editFileBefore
      * @return $this
      */
@@ -91,7 +91,7 @@ class IBlockType
     }
 
     /**
-     * Полный путь к файлу-обработчику вывода интерфейса редактирования элемента.
+     * The full path to the output handler file of the element editing interface.
      * @param string $editFileAfter
      * @return $this
      */
@@ -103,7 +103,7 @@ class IBlockType
     }
 
     /**
-     * Блоки данного типа экспортировать в RSS
+     * Export blocks of this type to RSS
      * @param bool $inRss
      * @return $this
      */
@@ -115,7 +115,7 @@ class IBlockType
     }
 
     /**
-     * Порядок сортировки типа
+     * Sort order
      * @param int $sort
      * @return $this
      */
@@ -127,8 +127,8 @@ class IBlockType
     }
 
     /**
-     * Указать языковые фразы
-     * @param string $lang ключ языка (ru)
+     * Specify language phrases
+     * @param string $lang language key (ru)
      * @param string $name
      * @param string $sectionName
      * @param string $elementName

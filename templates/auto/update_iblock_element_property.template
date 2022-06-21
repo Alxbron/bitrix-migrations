@@ -22,7 +22,7 @@ class __className__ extends BitrixMigration
         $updated = $ibp->update($id, $fields);
 
         if (!$updated) {
-            throw new MigrationException('Ошибка при изменении свойства инфоблока '.$ibp->LAST_ERROR);
+            throw new MigrationException('Error when changing iblock property '.$ibp->LAST_ERROR);
         }
     }
 

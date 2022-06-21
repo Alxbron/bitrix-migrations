@@ -19,10 +19,10 @@ class __className__ extends BitrixMigration
             'NAME' => '__',
             'SORT' => 500,
             'CODE' => '__',
-            'PROPERTY_TYPE' => 'L', // Список
-            'LIST_TYPE' => 'C', // Тип списка - 'флажки'
+            'PROPERTY_TYPE' => 'L', // List
+            'LIST_TYPE' => 'C', // List type - 'checkboxes'
             'VALUES' => [
-                'VALUE' => 'да',
+                'VALUE' => 'yes',
             ],
             'MULTIPLE'  => 'N',
             'IS_REQUIRED' => 'N',

@@ -20,7 +20,7 @@ class __className__ extends BitrixMigration
         $group->update(__id__, $fields);
 
         if ($group->LAST_ERROR) {
-            throw new MigrationException('Ошибка при обновлении группы '.$group->LAST_ERROR);
+            throw new MigrationException('Error updating the group '.$group->LAST_ERROR);
         }
     }
 

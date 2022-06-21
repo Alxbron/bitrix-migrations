@@ -6,19 +6,19 @@ namespace Arrilot\BitrixMigrations\Constructors;
 
 class Constructor
 {
-    const OBJ_USER = 'USER'; // для пользователя
-    const OBJ_BLOG_BLOG = 'BLOG_BLOG'; // для блога
-    const OBJ_BLOG_POST = 'BLOG_POST'; // для сообщения в блоге
-    const OBJ_BLOG_COMMENT = 'BLOG_COMMENT'; // для комментария сообщения
-    const OBJ_TASKS_TASK = 'TASKS_TASK'; // для задач
-    const OBJ_CALENDAR_EVENT = 'CALENDAR_EVENT'; // для событий календаря
-    const OBJ_LEARN_ATTEMPT = 'LEARN_ATTEMPT'; // для попыток теста
-    const OBJ_SONET_GROUP = 'SONET_GROUP'; // для групп соцсети
-    const OBJ_WEBDAV = 'WEBDAV'; // для библиотек документов
-    const OBJ_FORUM_MESSAGE = 'FORUM_MESSAGE'; // для сообщений форума
+    const OBJ_USER = 'USER'; // for the user
+    const OBJ_BLOG_BLOG = 'BLOG_BLOG'; // for blog
+    const OBJ_BLOG_POST = 'BLOG_POST'; // for blog post
+    const OBJ_BLOG_COMMENT = 'BLOG_COMMENT'; // for comment on a post
+    const OBJ_TASKS_TASK = 'TASKS_TASK'; // for tasks
+    const OBJ_CALENDAR_EVENT = 'CALENDAR_EVENT'; // for calendar events
+    const OBJ_LEARN_ATTEMPT = 'LEARN_ATTEMPT'; // for test attempts
+    const OBJ_SONET_GROUP = 'SONET_GROUP'; // for sonet group
+    const OBJ_WEBDAV = 'WEBDAV'; // for document libraries
+    const OBJ_FORUM_MESSAGE = 'FORUM_MESSAGE'; // for forum message
 
     /**
-     * для highload-блока с ID=N
+     * for highload-block with ID=N
      * @param $id
      * @return string
      */
@@ -28,7 +28,7 @@ class Constructor
     }
 
     /**
-     * для секций инфоблока с ID = N
+     * for iblock sections with ID = N
      * @param $id
      * @return string
      */
@@ -38,7 +38,7 @@ class Constructor
     }
 
     /**
-     * Для инфоблока с ID = N
+     * For iblock with ID = N
      * @param $id
      * @return string
      */

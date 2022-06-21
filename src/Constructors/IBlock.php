@@ -12,7 +12,7 @@ class IBlock
     use FieldConstructor;
 
     /**
-     * Добавить инфоблок
+     * Add iblock
      * @throws \Exception
      */
     public function add()
@@ -24,13 +24,13 @@ class IBlock
             throw new \Exception($obj->LAST_ERROR);
         }
 
-        Logger::log("Добавлен инфоблок {$this->fields['CODE']}", Logger::COLOR_GREEN);
+        Logger::log("Added iblock {$this->fields['CODE']}", Logger::COLOR_GREEN);
 
         return $iblockId;
     }
 
     /**
-     * Обновить инфоблок
+     * Update iblock
      * @param $id
      * @throws \Exception
      */
@@ -41,25 +41,25 @@ class IBlock
             throw new \Exception($obj->LAST_ERROR);
         }
 
-        Logger::log("Обновлен инфоблок {$id}", Logger::COLOR_GREEN);
+        Logger::log("Updated iblock {$id}", Logger::COLOR_GREEN);
     }
 
     /**
-     * Удалить инфоблок
+     * Delete iblock
      * @param $id
      * @throws \Exception
      */
     public static function delete($id)
     {
         if (!\CIBlock::Delete($id)) {
-            throw new \Exception('Ошибка при удалении инфоблока');
+            throw new \Exception('Error when deleting an iblock');
         }
 
-        Logger::log("Удален инфоблок {$id}", Logger::COLOR_GREEN);
+        Logger::log("Deleted iblock {$id}", Logger::COLOR_GREEN);
     }
 
     /**
-     * Установить настройки для добавления инфоблока по умолчанию
+     * Set the settings for adding the default iblock
      * @param $name
      * @param $code
      * @param $iblock_type_id
@@ -71,7 +71,7 @@ class IBlock
     }
 
     /**
-     * ID сайта.
+     * Site ID.
      * @param string $siteId
      * @return $this
      */
@@ -83,7 +83,7 @@ class IBlock
     }
 
     /**
-     * Символьный идентификатор.
+     * Symbolic identifier.
      * @param string $code
      * @return $this
      */
@@ -95,7 +95,7 @@ class IBlock
     }
 
     /**
-     * Внешний код.
+     * External code.
      * @param string $xml_id
      * @return $this
      */
@@ -107,7 +107,7 @@ class IBlock
     }
 
     /**
-     * Код типа инфоблока
+     * Iblock type code
      * @param string $iblockTypeId
      * @return $this
      */
@@ -119,7 +119,7 @@ class IBlock
     }
 
     /**
-     * Название.
+     * Name.
      * @param string $name
      * @return $this
      */
@@ -131,7 +131,7 @@ class IBlock
     }
 
     /**
-     * Флаг активности
+     * Activity flag
      * @param bool $active
      * @return $this
      */
@@ -143,7 +143,7 @@ class IBlock
     }
 
     /**
-     * Индекс сортировки.
+     * Sorting index.
      * @param int $sort
      * @return $this
      */
@@ -155,7 +155,7 @@ class IBlock
     }
 
     /**
-     * Шаблон URL-а к странице для публичного просмотра списка элементов информационного блока.
+     * Template URL to the page for public viewing of the list of elements of iblock.
      * @param string $listPageUrl
      * @return $this
      */
@@ -167,7 +167,7 @@ class IBlock
     }
 
     /**
-     * Шаблон URL-а к странице для просмотра раздела.
+     * Template URL to the page to view the section.
      * @param string $sectionPageUrl
      * @return $this
      */
@@ -179,7 +179,7 @@ class IBlock
     }
 
     /**
-     * Канонический URL элемента.
+     * Canonical URL of the element.
      * @param string $canonicalPageUrl
      * @return $this
      */
@@ -191,7 +191,7 @@ class IBlock
     }
 
     /**
-     * URL детальной страницы элемента.
+     * URL of the element's detail page.
      *
      * @param string $detailPageUrl
      *
@@ -205,13 +205,13 @@ class IBlock
     }
 
     /**
-     * Устанавливает значения по умолчанию для страниц инфоблока, раздела и деталей элемента
-     * (как при создании через административный интерфейс или с ЧПУ).
+     * Sets default values for iblock pages, section, and element details
+     * (as when created via the administrative interface or with a friendly url).
      *
-     * Для использовании ЧПУ рекомендуется сделать обязательными для заполнения символьный код
-     * элементов и разделов инфоблока.
+     * To use a friendly url, it is recommended to make
+     * the character code of the elements and sections of iblock mandatory.
      *
-     * @param bool sef Использовать ли ЧПУ (понадобится добавить правило в urlrewrite)
+     * @param bool sef Whether to use a friendly url (you will need to add a rule to urlrewrite)
      *
      * @return IBlock
      */
@@ -235,7 +235,7 @@ class IBlock
     }
 
     /**
-     * Код картинки в таблице файлов.
+     * Image code in the file table.
      * @param array $picture
      * @return $this
      */
@@ -247,7 +247,7 @@ class IBlock
     }
 
     /**
-     * Описание.
+     * Description.
      * @param string $description
      * @return $this
      */
@@ -259,7 +259,7 @@ class IBlock
     }
 
     /**
-     * Тип описания (text/html)
+     * Description type (text/html)
      * @param string $descriptionType
      * @return $this
      */
@@ -271,7 +271,7 @@ class IBlock
     }
 
     /**
-     * Разрешен экспорт в RSS динамически
+     * Allowed to export to RSS dynamically
      * @param bool $rssActive
      * @return $this
      */
@@ -283,7 +283,7 @@ class IBlock
     }
 
     /**
-     * Время жизни RSS и интервал между генерациями файлов RSS (при включенном RSS_FILE_ACTIVE или RSS_YANDEX_ACTIVE) (часов).
+     * RSS lifetime and the interval between RSS file generation (with RSS_FILE_ACTIVE or RSS_YANDEX_ACTIVE enabled) (hours).
      * @param int $rssTtl
      * @return $this
      */
@@ -295,7 +295,7 @@ class IBlock
     }
 
     /**
-     * Прегенерировать выгрузку в файл.
+     * Regenerate the upload to a file.
      * @param bool $rssFileActive
      * @return $this
      */
@@ -307,7 +307,7 @@ class IBlock
     }
 
     /**
-     * Количество экспортируемых в RSS файл элементов (при включенном RSS_FILE_ACTIVE)
+     * The number of elements exported to the RSS file (with RSS_FILE_ACTIVE enabled)
      * @param int $rssFileLimit
      * @return $this
      */
@@ -319,7 +319,7 @@ class IBlock
     }
 
     /**
-     * За сколько последних дней экспортировать в RSS файл. (при включенном RSS_FILE_ACTIVE). -1 без ограничения по дням.
+     * For how many recent days to export to an RSS file. (with RSS_FILE_ACTIVE enabled). -1 without a day limit.
      * @param int $rssFileDays
      * @return $this
      */
@@ -331,7 +331,7 @@ class IBlock
     }
 
     /**
-     * Экспортировать в RSS файл в формате для yandex
+     * Export to RSS file in yandex format
      * @param bool $rssYandexActive
      * @return $this
      */
@@ -343,7 +343,7 @@ class IBlock
     }
 
     /**
-     * Индексировать для поиска элементы информационного блока.
+     * Index the elements of iblock for search.
      * @param bool $indexElement
      * @return $this
      */
@@ -355,7 +355,7 @@ class IBlock
     }
 
     /**
-     * Индексировать для поиска разделы информационного блока.
+     * Index the sections of iblock for search.
      * @param bool $indexSection
      * @return $this
      */
@@ -367,7 +367,7 @@ class IBlock
     }
 
     /**
-     * Режим отображения списка элементов в административном разделе (S|C).
+     * Display mode of the list of items in the administrative section (S|C).
      * @param string $listMode
      * @return $this
      */
@@ -379,7 +379,7 @@ class IBlock
     }
 
     /**
-     * Режим проверки прав доступа (S|E).
+     * Access rights verification mode (S|E).
      * @param string $rightsMode
      * @return $this
      */
@@ -391,7 +391,7 @@ class IBlock
     }
 
     /**
-     * Признак наличия привязки свойств к разделам (Y|N).
+     * Whether there is a binding of properties to sections (Y|N).
      * @param string $sectionProperty
      * @return $this
      */
@@ -403,7 +403,7 @@ class IBlock
     }
 
     /**
-     * Признак наличия фасетного индекса (N|Y|I).
+     * Whether there is a faceted index (N|Y|I).
      * @param string $propertyIndex
      * @return $this
      */
@@ -415,7 +415,7 @@ class IBlock
     }
 
     /**
-     * Служебное поле для процедуры конвертации места хранения значений свойств инфоблока.
+     * A service field for the procedure of converting the storage location of the values of the properties of iblock.
      * @param int $lastConvElement
      * @return $this
      */
@@ -427,8 +427,8 @@ class IBlock
     }
 
     /**
-     * Служебное поле для установки прав для разных групп на доступ к информационному блоку.
-     * @param array $groupId Массив соответствий кодов групп правам доступа
+     * Service field for setting permissions for different groups to access iblock.
+     * @param array $groupId Array of correspondences of access rights group codes
      * @return $this
      */
     public function setGroupId($groupId)
@@ -439,7 +439,7 @@ class IBlock
     }
 
     /**
-     * Служебное поле для привязки к группе социальной сети.
+     * Service field for linking to a social network group.
      * @param int $socnetGroupId
      * @return $this
      */
@@ -451,7 +451,7 @@ class IBlock
     }
 
     /**
-     * Инфоблок участвует в документообороте (Y|N).
+     * Is iblock involved in the document flow (Y|N).
      * @param bool $workflow
      * @return $this
      */
@@ -463,7 +463,7 @@ class IBlock
     }
 
     /**
-     * Инфоблок участвует в бизнес-процессах (Y|N).
+     * Is iblock involved in business processes (Y|N).
      * @param bool $bizproc
      * @return $this
      */
@@ -475,7 +475,7 @@ class IBlock
     }
 
     /**
-     * Флаг выбора интерфейса отображения привязки элемента к разделам (D|L|P).
+     * Flag for selecting the interface for displaying the element binding to sections (D|L|P).
      * @param string $sectionChooser
      * @return $this
      */
@@ -487,7 +487,7 @@ class IBlock
     }
 
     /**
-     * Флаг хранения значений свойств элементов инфоблока (1 - в общей таблице | 2 - в отдельной).
+     * Flag for storing the values of the properties of the data block elements (1 - in the general table | 2 - in a separate one).
      * @param int $version
      * @return $this
      */
@@ -499,7 +499,7 @@ class IBlock
     }
 
     /**
-     * Полный путь к файлу-обработчику массива полей элемента перед сохранением на странице редактирования элемента.
+     * The full path to the handler file of the array of element fields before saving on the element editing page.
      * @param string $editFileBefore
      * @return $this
      */
@@ -511,7 +511,7 @@ class IBlock
     }
 
     /**
-     * Полный путь к файлу-обработчику вывода интерфейса редактирования элемента.
+     * The full path to the output handler file of the element editing interface.
      * @param string $editFileAfter
      * @return $this
      */
@@ -523,11 +523,11 @@ class IBlock
     }
 
     /**
-     * Название элемента в единственном числе
+     * The name of the element in the singular
      * @param string $message
      * @return $this
      */
-    public function setMessElementName($message = 'Элемент')
+    public function setMessElementName($message = 'Element')
     {
         $this->fields['ELEMENT_NAME'] = $message;
 
@@ -535,11 +535,11 @@ class IBlock
     }
 
     /**
-     * Название элемента во множнственном числе
+     * The name of the element in the plural
      * @param string $message
      * @return $this
      */
-    public function setMessElementsName($message = 'Элементы')
+    public function setMessElementsName($message = 'Elements')
     {
         $this->fields['ELEMENTS_NAME'] = $message;
 
@@ -547,11 +547,11 @@ class IBlock
     }
 
     /**
-     * Действие по добавлению элемента
+     * Action to add an element
      * @param string $message
      * @return $this
      */
-    public function setMessElementAdd($message = 'Добавить элемент')
+    public function setMessElementAdd($message = 'Add element')
     {
         $this->fields['ELEMENT_ADD'] = $message;
 
@@ -559,11 +559,11 @@ class IBlock
     }
 
     /**
-     * Действие по редактированию/изменению элемента
+     * Action to edit/change an element
      * @param string $message
      * @return $this
      */
-    public function setMessElementEdit($message = 'Изменить элемент')
+    public function setMessElementEdit($message = 'Edit element')
     {
         $this->fields['ELEMENT_EDIT'] = $message;
 
@@ -571,11 +571,11 @@ class IBlock
     }
 
     /**
-     * Действие по удалению элемента
+     * Action to delete an element
      * @param string $message
      * @return $this
      */
-    public function setMessElementDelete($message = 'Удалить элемент')
+    public function setMessElementDelete($message = 'Delete element')
     {
         $this->fields['ELEMENT_DELETE'] = $message;
 
@@ -583,11 +583,11 @@ class IBlock
     }
 
     /**
-     * Название раздела в единственном числе
+     * The name of the section in the singular
      * @param string $message
      * @return $this
      */
-    public function setMessSectionName($message = 'Раздел')
+    public function setMessSectionName($message = 'Section')
     {
         $this->fields['SECTION_NAME'] = $message;
 
@@ -595,11 +595,11 @@ class IBlock
     }
 
     /**
-     * Название раздела во множнственном числе
+     * The name of the section in the plural
      * @param string $message
      * @return $this
      */
-    public function setMessSectionsName($message = 'Разделы')
+    public function setMessSectionsName($message = 'Sections')
     {
         $this->fields['SECTIONS_NAME'] = $message;
 
@@ -607,11 +607,11 @@ class IBlock
     }
 
     /**
-     * Действие по добавлению раздела
+     * Action to add a section
      * @param string $message
      * @return $this
      */
-    public function setMessSectionAdd($message = 'Добавить раздел')
+    public function setMessSectionAdd($message = 'Add section')
     {
         $this->fields['SECTION_ADD'] = $message;
 
@@ -619,11 +619,11 @@ class IBlock
     }
 
     /**
-     * Действие по редактированию/изменению раздела
+     * Action to edit/change a section
      * @param string $message
      * @return $this
      */
-    public function setMessSectionEdit($message = 'Изменить раздел')
+    public function setMessSectionEdit($message = 'Edit section')
     {
         $this->fields['SECTION_EDIT'] = $message;
 
@@ -631,11 +631,11 @@ class IBlock
     }
 
     /**
-     * Действие по удалению раздела
+     * Action to delete a section
      * @param string $message
      * @return $this
      */
-    public function setMessSectionDelete($message = 'Удалить раздел')
+    public function setMessSectionDelete($message = 'Delete section')
     {
         $this->fields['SECTION_DELETE'] = $message;
 

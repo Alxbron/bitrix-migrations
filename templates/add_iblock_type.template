@@ -27,7 +27,7 @@ class __className__ extends BitrixMigration
         ]);
 
         if (!$cbtRes) {
-            throw new MigrationException('Ошибка при добавлении типа инфоблока '.$cbt->LAST_ERROR);
+            throw new MigrationException('Error when adding iblock type '.$cbt->LAST_ERROR);
         }
     }
 
@@ -45,7 +45,7 @@ class __className__ extends BitrixMigration
 
         if (!CIBlockType::Delete('__')) {
             $DB->Rollback();
-            throw new MigrationException('Ошибка при удалении типа инфоблока __');
+            throw new MigrationException('Error when deleting iblock type __');
         }
 
         $DB->Commit();

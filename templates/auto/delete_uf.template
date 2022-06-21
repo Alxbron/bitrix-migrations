@@ -20,7 +20,7 @@ class __className__ extends BitrixMigration
 
         $dbResult = $oUserTypeEntity->delete($id);
         if (!$dbResult->result) {
-            throw new MigrationException("Не удалось обновить удалить свойство с FIELD_NAME = {$fields['FIELD_NAME']} и ENTITY_ID = {$fields['ENTITY_ID']}");
+            throw new MigrationException("Failed to update delete property with FIELD_NAME = {$fields['FIELD_NAME']} and ENTITY_ID = {$fields['ENTITY_ID']}");
         }
     }
 

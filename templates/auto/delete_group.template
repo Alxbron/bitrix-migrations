@@ -19,7 +19,7 @@ class __className__ extends BitrixMigration
         $this->db->startTransaction();
         if (!$group->delete(__id__)) {
             $this->db->rollbackTransaction();
-            throw new MigrationException('Ошибка при удалении группы '.$group->LAST_ERROR);
+            throw new MigrationException('Error deleting a group '.$group->LAST_ERROR);
         }
         $this->db->commitTransaction();
     }

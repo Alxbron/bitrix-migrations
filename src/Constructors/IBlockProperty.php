@@ -12,7 +12,7 @@ class IBlockProperty
     use FieldConstructor;
 
     /**
-     * Добавить свойство инфоблока
+     * Add iblock property
      * @throws \Exception
      */
     public function add()
@@ -25,13 +25,13 @@ class IBlockProperty
             throw new \Exception($obj->LAST_ERROR);
         }
 
-        Logger::log("Добавлено свойство инфоблока {$this->fields['CODE']}", Logger::COLOR_GREEN);
+        Logger::log("Added iblock property {$this->fields['CODE']}", Logger::COLOR_GREEN);
 
         return $property_id;
     }
 
     /**
-     * Обновить свойство инфоблока
+     * Update iblock property
      * @param $id
      * @throws \Exception
      */
@@ -42,25 +42,25 @@ class IBlockProperty
             throw new \Exception($obj->LAST_ERROR);
         }
 
-        Logger::log("Обновлено свойство инфоблока {$id}", Logger::COLOR_GREEN);
+        Logger::log("Updated iblock property {$id}", Logger::COLOR_GREEN);
     }
 
     /**
-     * Удалить свойство инфоблока
+     * Delete iblock property
      * @param $id
      * @throws \Exception
      */
     public static function delete($id)
     {
         if (!\CIBlockProperty::Delete($id)) {
-            throw new \Exception('Ошибка при удалении свойства инфоблока');
+            throw new \Exception('Error when deleting iblock property');
         }
 
-        Logger::log("Удалено свойство инфоблока {$id}", Logger::COLOR_GREEN);
+        Logger::log("Iblock property removed {$id}", Logger::COLOR_GREEN);
     }
 
     /**
-     * Установить настройки для добавления свойства инфоблока по умолчанию
+     * Set settings for adding a default iblock property
      * @param string $code
      * @param string $name
      * @param int $iblockId
@@ -72,7 +72,7 @@ class IBlockProperty
     }
 
     /**
-     * Символьный идентификатор.
+     * Symbolic identifier.
      * @param string $code
      * @return $this
      */
@@ -84,7 +84,7 @@ class IBlockProperty
     }
 
     /**
-     * Внешний код.
+     * External code.
      * @param string $xml_id
      * @return $this
      */
@@ -96,7 +96,7 @@ class IBlockProperty
     }
 
     /**
-     * Код информационного блока.
+     * Iblock id.
      * @param string $iblock_id
      * @return $this
      */
@@ -108,7 +108,7 @@ class IBlockProperty
     }
 
     /**
-     * Название.
+     * Name.
      * @param string $name
      * @return $this
      */
@@ -120,7 +120,7 @@ class IBlockProperty
     }
 
     /**
-     * Флаг активности
+     * Activity flag
      * @param bool $active
      * @return $this
      */
@@ -132,7 +132,7 @@ class IBlockProperty
     }
 
     /**
-     * Обязательное (Y|N).
+     * Required (Y|N).
      * @param bool $isRequired
      * @return $this
      */
@@ -144,7 +144,7 @@ class IBlockProperty
     }
 
     /**
-     * Индекс сортировки.
+     * Sort index.
      * @param int $sort
      * @return $this
      */
@@ -156,7 +156,7 @@ class IBlockProperty
     }
 
     /**
-     * Тип свойства. Возможные значения: S - строка, N - число, F - файл, L - список, E - привязка к элементам, G - привязка к группам.
+     * Property type. Possible values: S - string, N - number, F - file, L - list, E - binding to elements, G - binding to groups.
      * @param string $propertyType
      * @return $this
      */
@@ -168,10 +168,10 @@ class IBlockProperty
     }
 
     /**
-     * Установить тип свойства "Список"
-     * @param array $values массив доступных значений (можно собрать с помощью класса IBlockPropertyEnum)
-     * @param string $listType Тип, может быть "L" - выпадающий список или "C" - флажки.
-     * @param int $multipleCnt Количество строк в выпадающем списке
+     * Set the "List" property type
+     * @param array $values array of available values (can be collected using class IBlockPropertyEnum)
+     * @param string $listType Type, can be "L" - dropdown list or "C" - checkboxes.
+     * @param int $multipleCnt Number of rows in the drop-down list
      * @return $this
      */
     public function setPropertyTypeList($values, $listType = null, $multipleCnt = null)
@@ -191,8 +191,8 @@ class IBlockProperty
     }
 
     /**
-     * Установить тип свойства "Файл"
-     * @param string $fileType Список допустимых расширений (через запятую).
+     * Set property type to "File"
+     * @param string $fileType A list of valid extensions (separated by commas).
      * @return $this
      */
     public function setPropertyTypeFile($fileType = null)
@@ -207,9 +207,9 @@ class IBlockProperty
     }
 
     /**
-     * Установить тип свойства "привязка к элементам" или "привязка к группам"
-     * @param string $property_type Тип свойства. Возможные значения: E - привязка к элементам, G - привязка к группам.
-     * @param string $linkIblockId код информационного блока с элементами/группами которого и будут связано значение.
+     * Set the property type "binding to elements" or "binding to groups"
+     * @param string $property_type Property type. Possible values: E - binding to elements, G - binding to groups.
+     * @param string $linkIblockId the code of iblock with the elements / groups of which the value will be associated.
      * @return $this
      */
     public function setPropertyTypeIblock($property_type, $linkIblockId)
@@ -220,8 +220,8 @@ class IBlockProperty
     }
 
     /**
-     * Установить тип свойства "справочник"
-     * @param string $table_name таблица HL для связи
+     * Set the "directory" property type
+     * @param string $table_name HL table for relation
      * @return $this
      */
     public function setPropertyTypeHl($table_name)
@@ -234,7 +234,7 @@ class IBlockProperty
     }
 
     /**
-     * Множественность (Y|N).
+     * Multiple (Y|N).
      * @param bool $multiple
      * @return $this
      */
@@ -246,7 +246,7 @@ class IBlockProperty
     }
 
     /**
-     * Количество строк в выпадающем списке для свойств типа "список".
+     * Number of rows in dropdown list for type properties "list".
      * @param int $multipleCnt
      * @return $this
      */
@@ -258,7 +258,7 @@ class IBlockProperty
     }
 
     /**
-     * Значение свойства по умолчанию (кроме свойства типа список L).
+     * Default property value (except list L type property).
      * @param string $defaultValue
      * @return $this
      */
@@ -270,7 +270,7 @@ class IBlockProperty
     }
 
     /**
-     * Количество строк в ячейке ввода значения свойства.
+     * The number of lines in the property value entry cell.
      * @param int $rowCount
      * @return $this
      */
@@ -282,7 +282,7 @@ class IBlockProperty
     }
 
     /**
-     * Количество столбцов в ячейке ввода значения свойства.
+     * The number of columns in the property value entry cell.
      * @param int $colCount
      * @return $this
      */
@@ -294,7 +294,7 @@ class IBlockProperty
     }
 
     /**
-     * Тип для свойства список (L). Может быть "L" - выпадающий список или "C" - флажки.
+     * The type for the property is list (L). It can be "L" - a drop-down list or "C" - checkboxes.
      * @param string $listType
      * @return $this
      */
@@ -306,7 +306,7 @@ class IBlockProperty
     }
 
     /**
-     * Список допустимых расширений для свойств файл "F" (через запятую).
+     * A list of valid extensions for the file "F" properties (separated by commas).
      * @param string $fileType
      * @return $this
      */
@@ -318,7 +318,7 @@ class IBlockProperty
     }
 
     /**
-     * Индексировать значения данного свойства.
+     * Index the values of this property.
      * @param bool $searchable
      * @return $this
      */
@@ -330,7 +330,7 @@ class IBlockProperty
     }
 
     /**
-     * Выводить поля для фильтрации по данному свойству на странице списка элементов в административном разделе.
+     * Output fields for filtering by this property on the list of items page in the administrative section.
      * @param bool $filtrable
      * @return $this
      */
@@ -342,7 +342,7 @@ class IBlockProperty
     }
 
     /**
-     * Для свойств типа привязки к элементам и группам задает код информационного блока с элементами/группами которого и будут связано значение.
+     * For properties of the binding type to elements and groups, sets the code of iblock with the elements/groups of which the value will be associated.
      * @param int $linkIblockId
      * @return $this
      */
@@ -354,7 +354,7 @@ class IBlockProperty
     }
 
     /**
-     * Признак наличия у значения свойства дополнительного поля описания. Только для типов S - строка, N - число и F - файл (Y|N).
+     * Indicates whether the property value has an additional description field. Only for types S - string, N - number and F - file (Y|N).
      * @param bool $withDescription
      * @return $this
      */
@@ -366,7 +366,7 @@ class IBlockProperty
     }
 
     /**
-     * Идентификатор пользовательского типа свойства.
+     * ID of the user property type.
      * @param string $user_type
      * @return $this
      */
@@ -378,7 +378,7 @@ class IBlockProperty
     }
 
     /**
-     * Идентификатор пользовательского типа свойства.
+     * ID of the user property type.
      * @param array $user_type_settings
      * @return $this
      */
@@ -390,7 +390,7 @@ class IBlockProperty
     }
 
     /**
-     * Подсказка
+     * Hint
      * @param string $hint
      * @return $this
      */

@@ -14,7 +14,7 @@ class UserField
     use FieldConstructor;
 
     /**
-     * Добавить UF
+     * Add UF
      * @throws \Exception
      */
     public function add()
@@ -27,13 +27,13 @@ class UserField
             throw new \Exception($APPLICATION->GetException());
         }
 
-        Logger::log("Добавлен UF {$this->fields['FIELD_NAME']} для {$this->fields['ENTITY_ID']}", Logger::COLOR_GREEN);
+        Logger::log("Added UF {$this->fields['FIELD_NAME']} for {$this->fields['ENTITY_ID']}", Logger::COLOR_GREEN);
 
         return $result;
     }
 
     /**
-     * Обновить UF
+     * Update UF
      * @param $id
      * @throws \Exception
      */
@@ -47,11 +47,11 @@ class UserField
             throw new \Exception($APPLICATION->GetException());
         }
 
-        Logger::log("Обновлен UF {$id}", Logger::COLOR_GREEN);
+        Logger::log("Updated UF {$id}", Logger::COLOR_GREEN);
     }
 
     /**
-     * Удалить UF
+     * Delete UF
      * @param $id
      * @throws \Exception
      */
@@ -64,13 +64,13 @@ class UserField
             throw new \Exception($APPLICATION->GetException());
         }
 
-        Logger::log("Удален UF {$id}", Logger::COLOR_GREEN);
+        Logger::log("Deleted UF {$id}", Logger::COLOR_GREEN);
     }
 
     /**
-     * Установить настройки для добавления UF по умолчанию
-     * @param string $entityId Идентификатор сущности
-     * @param string $fieldName Код поля.
+     * Set the settings to add the default UF
+     * @param string $entityId Entity ID
+     * @param string $fieldName Field code.
      * @return $this
      */
     public function constructDefault($entityId, $fieldName)
@@ -79,7 +79,7 @@ class UserField
     }
 
     /**
-     * Идентификатор сущности, к которой будет привязано свойство.
+     * ID of the entity to which the property will be bound.
      * @param string $entityId
      * @return $this
      */
@@ -91,7 +91,7 @@ class UserField
     }
 
     /**
-     * Код поля. Всегда должно начинаться с UF_
+     * Field code. Should always start with UF_
      * @param string $fieldName
      * @return $this
      */
@@ -103,7 +103,7 @@ class UserField
     }
 
     /**
-     * тип пользовательского свойства
+     * type of user field
      * @param string $userType
      * @return $this
      */
@@ -115,7 +115,7 @@ class UserField
     }
 
     /**
-     * тип нового пользовательского свойства HL
+     * type of the new user field HL
      * @param string $table_name
      * @param string $showField
      * @return $this
@@ -132,7 +132,7 @@ class UserField
     }
 
     /**
-     * тип нового пользовательского свойства "связь с разелом ИБ"
+     * type of the new user property "connection with the IB section"
      * @param string $iblockId
      * @return $this
      */
@@ -146,7 +146,7 @@ class UserField
     }
 
     /**
-     * тип нового пользовательского свойства "связь с элементом ИБ"
+     * type of the new user property "connection to the IB element"
      * @param string $iblockId
      * @return $this
      */
@@ -160,7 +160,7 @@ class UserField
     }
 
     /**
-     * XML_ID пользовательского свойства. Используется при выгрузке в качестве названия поля
+     * XML_ID of the user property. Used when uploading as a field name
      * @param string $xmlId
      * @return $this
      */
@@ -172,7 +172,7 @@ class UserField
     }
 
     /**
-     * Сортировка
+     * Sorting
      * @param int $sort
      * @return $this
      */
@@ -184,7 +184,7 @@ class UserField
     }
 
     /**
-     * Является поле множественным или нет
+     * Is the field multiple or not
      * @param bool $multiple
      * @return $this
      */
@@ -196,7 +196,7 @@ class UserField
     }
 
     /**
-     * Обязательное или нет свойство
+     * Is the property required or not
      * @param bool $mandatory
      * @return $this
      */
@@ -208,7 +208,7 @@ class UserField
     }
 
     /**
-     * Показывать в фильтре списка. Возможные значения: не показывать = N, точное совпадение = I, поиск по маске = E, поиск по подстроке = S
+     * Show in the list filter. Possible values: do not show = N, exact match = I, mask search = E, substring search = S
      * @param string $showInFilter
      * @return $this
      */
@@ -220,7 +220,7 @@ class UserField
     }
 
     /**
-     * Не показывать в списке. Если передать какое-либо значение, то будет считаться, что флаг выставлен.
+     * Do not show in the list. If you pass any value, it will be assumed that the flag is set.
      * @param bool $showInList
      * @return $this
      */
@@ -232,7 +232,7 @@ class UserField
     }
 
     /**
-     * Пустая строка разрешает редактирование. Если передать какое-либо значение, то будет считаться, что флаг выставлен.
+     * An empty line allows editing. If you pass any value, it will be assumed that the flag is set.
      * @param bool $editInList
      * @return $this
      */
@@ -244,7 +244,7 @@ class UserField
     }
 
     /**
-     * Значения поля участвуют в поиске
+     * The values of the field are involved in the search
      * @param bool $isSearchable
      * @return $this
      */
@@ -256,7 +256,7 @@ class UserField
     }
 
     /**
-     * Дополнительные настройки поля (зависят от типа). В нашем случае для типа string
+     * Additional field settings (depending on the type). In our case, for the string type
      * @param array $settings
      * @return $this
      */
@@ -268,7 +268,7 @@ class UserField
     }
 
     /**
-     * Языковые фразы
+     * Language phrases
      * @param string $lang
      * @param string $text
      * @return $this
@@ -283,7 +283,7 @@ class UserField
     }
 
     /**
-     * Текст "Заголовок в списке"
+     * Text "Title in the list"
      * @param string $lang
      * @param string $text
      * @return $this
@@ -296,7 +296,7 @@ class UserField
     }
 
     /**
-     * Текст "Заголовок в списке"
+     * Text "Title in the list"
      * @param string $lang
      * @param string $text
      * @return $this
@@ -309,7 +309,7 @@ class UserField
     }
 
     /**
-     * Текст "Подпись фильтра в списке"
+     * Text "Filter signature in the list"
      * @param string $lang
      * @param string $text
      * @return $this
@@ -322,7 +322,7 @@ class UserField
     }
 
     /**
-     * Текст "Помощь"
+     * Text "Help"
      * @param string $lang
      * @param string $text
      * @return $this
@@ -335,7 +335,7 @@ class UserField
     }
 
     /**
-     * Текст "Сообщение об ошибке (не обязательное)"
+     * Text "Error message (optional)"
      * @param string $lang
      * @param string $text
      * @return $this
