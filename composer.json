@@ -14,9 +14,9 @@
   ],
   "homepage": "https://github.com/Arrilot/bitrix-migrations",
   "require": {
-    "php": ">=5.5.0",
-    "symfony/console": "~2|~3|~4",
-    "tightenco/collect": "5.*"
+        "php": "^7.1.3 || ^8.0",
+        "symfony/console": "^5.0 || ^6.0",
+        "tightenco/collect": "^8.0"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0",
